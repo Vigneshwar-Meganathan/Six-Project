@@ -1,0 +1,91 @@
+INSTALL BAMBOO CI/CD TOOL ON REDHAT 8.5:
+
+BEFORE INSTALLING BAMBOO NEED TO INSTALL JAVA jdk8:
+
+sudo yum install java-1.8.0-openjdk
+
+java -version
+
+OUTPUT:
+openjdk version "1.8.0_322"
+OpenJDK Runtime Environment (build 1.8.0_322-b06)
+OpenJDK 64-Bit Server VM (build 25.322-b06, mixed mode)
+
+SET ENVIRONMENT VARIABLE:
+
+readlink -f /usr/bin/java
+
+OUTPUT:
+/usr/lib/jvm/java-1.8.0-openjdk-1.8.0.312.b07-1.amzn2.0.2.x86_64/jre/
+
+JAVA_HOME=/usr/lib/jvm/java-1.8.0-openjdk-1.8.0.312.b07-1.amzn2.0.2.x86_64/jre
+
+export JAVA_HOME
+
+echo $PATH
+
+PATH=$PATH:$JAVA_HOME
+
+___________________________________________________________________________________________________________________________
+
+BAMBOO INSTALLATION STEP BY STEP:
+
+FIRST WE NEED TO CREATE TWO DIRECTORIES:
+
+cd /var/
+
+mkdir bamboo-install
+
+mkdir bamboo
+
+cd bamboo/
+
+mkdir bamboo-home
+
+WE NEED TO DOWNLOAD THE TAR.GZ FILE:
+
+https://www.atlassian.com/software/bamboo/download
+
+USING MOBAXTREME SSH BROWSER (SCP JUST DRAG AND DROP THE FILE)
+
+THE FILE WILL LOCATED ON /HOME/EC2-USER DIRECTORY AND MOVE THE FILE TO BAMBOO-INSTALL
+
+tar -xvf atlassian-bamboo-8.1.3.tar.gz
+
+cd  /var/bamboo-install/atlassian-bamboo-8.1.3/atlassian-bamboo/WEB-INF/classes
+
+vi  bamboo-init.properties
+
+UNCOMMAND THE LINE AND SET THE BAMBOO-HOME PATH:
+
+bamboo.home=/var/bamboo/bamboo-home
+
+___________________________________________________________________________________________________________________________
+
+INSTALL NODE JS
+
+sudo yum -y install curl
+
+curl -sL https://rpm.nodesource.com/setup_14.x | sudo bash -
+
+sudo yum install -y nodejs
+
+node -v
+
+curl -sL https://dl.yarnpkg.com/rpm/yarn.repo | sudo tee /etc/yum.repos.d/yarn.repo
+
+sudo yum install yarn
+
+sudo yum install gcc-c++ make
+
+LATEST STABLE VERSION OF NPM:
+
+npm -v
+
+npm install -g npm@latest
+
+npm -v
+
+___________________________________________________________________________________________________________________________
+
+

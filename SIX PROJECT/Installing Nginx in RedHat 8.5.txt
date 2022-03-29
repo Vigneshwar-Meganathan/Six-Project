@@ -1,0 +1,28 @@
+INSTALL NGINX ON RHEL:
+
+INSTALL EPEL PACKAGE REPOSITORY:
+
+sudo yum update -y
+
+sudo yum install -y https://dl.fedoraproject.org/pub/epel/epel-release-latest-7.noarch.rpm
+
+sudo yum install -y epel-release
+
+sudo yum install nginx -y
+
+START AND ENABLE NGINX:
+
+sudo nginx -v
+
+sudo systemctl enable nginx
+
+sudo systemctl start nginx
+
+sudo systemctl status nginx
+
+sudo systemctl stop nginx
+
+VISIT THE NGINX PAGE USING THE SERVER IP
+
+http://[server-ip]
+

@@ -1,0 +1,28 @@
+MANUAL JFROG PUBLISH AND PULL ARTIFACTS:
+__________________________________________________________________________________________________________________________________________________________________
+JFROG NPM PROCESS FOR PUBLISH THE ARTIFACTS:
+
+1. Need tp create the repository for NPM artifacts
+2. While creating we see the SET ME UP option and click on that it will display the password column enter the login password there.
+3. After that Set the default npm registry with your Artifactory repository
+   Eg: npm config set registry https://vigneshmeganathan.jfrog.io/artifactory/api/npm/creditreactjs-npm/
+   run this command in local machine in Red Hat.
+   Now just open the npmrc file
+   vi .npmrc
+   we see that register npm of the jfrog
+   now Copy the following snippet to your ~/.npmrc file.
+   Eg; _auth = <USERNAME>:<PASSWORD> (converted to base 64)
+	   email = youremail@email.com
+	   always-auth = true
+4. Now go to the path of the Npm source and edit the package.json file the third line u will find the private = true just change it to false and save it 
+5. Now select the EXPLICIT and Publish your artifacts using the following command.
+   Eg: npm publish --registry https://vigneshmeganathan.jfrog.io/artifactory/api/npm/viky2204-npm-local/
+6. Now the source code will be publish in Jforg artifacts in the allocated repository.
+7. For downloading the artifacts 
+   Eg: npm view calculator dist.tarball (for the specific version we need to download)
+   Eg: npm view calculator@0.1.0 dist.tarball
+   Eg: npm pack calculator@0.1.0
+   (OR)
+   Eg: npm pack calculator (for the latest publish artifacts pull command)
+__________________________________________________________________________________________________________________________________________________________________
+
