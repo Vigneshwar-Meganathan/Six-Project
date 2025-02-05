@@ -1,0 +1,21 @@
+name: 'Commit Message Check'
+on:
+  pull_request:
+    types:
+      - opened
+      - edited
+      - reopened
+      - synchronize
+    branches:
+      - develop
+
+jobs:
+  check-commit-message:
+    name: Check Commit Message
+    runs-on: ubuntu-latest
+    steps:
+      - name: Check for Resolves / Fixes
+        uses: gsactions/commit-message-checker@v1
+        with:
+          pattern: '^(MKT|PLT|WVT|DCT|PRS)-[0-9]+ [A-Za-z0-9._\- ]+$'
+          error: 'You need to give at least one line "MKT-<issue number>-Commit message"line.'
