@@ -24,6 +24,6 @@ JFROG NPM PROCESS FOR PUBLISH THE ARTIFACTS:
    Eg: npm pack calculator@0.1.0
    (OR)
    Eg: npm pack calculator (for the latest publish artifacts pull command)
-8. For Downloading the artifacts
+8. For testing the Artifacts.
 __________________________________________________________________________________________________________________________________________________________________
 
